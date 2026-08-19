@@ -1,0 +1,8 @@
+.DS_Store
+
+# Scratch/reference material dropped into the repo folder for convenience —
+# not part of the published site. reference/ has screenshots (some show
+# browser tabs/bookmarks) and Kitagishi-CV/ is the separate LaTeX CV source
+# repo (has its own .git); neither should be committed here.
+reference/
+Kitagishi-CV/

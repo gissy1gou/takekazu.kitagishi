@@ -1,0 +1,358 @@
+/* Kitagishi homepage — shared styles
+   Palette: black/white base (from the old STUDIO site) plus two accents
+   pulled from assets/kitagishi-cv.pdf — --accent is the CV's one accent
+   color (the small square markers/rules), --accent-brown is sampled from
+   the wood-grain background in the profile photo. Used sparingly: links
+   and the active nav state get --accent, muted/secondary bits (dates,
+   list numbers) get --accent-brown. */
+
+:root {
+  --ink: #000000;
+  --ink-soft: #4a4a4a;
+  --paper: #ffffff;
+  --line: #d9d9d9;
+  --accent: #da5019;
+  --accent-brown: #6b5544;
+  --header-h: 84px;
+  --sidebar-w: 300px;
+  --content-max: 900px;
+  --font-body: "Open Sans", "Hiragino Sans", "Yu Gothic", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+/* Self-hosted (assets/fonts/) rather than loaded from Google Fonts, to keep
+   the site free of external requests. Both files are variable fonts
+   (weight 300–800) covering the Latin subset only — Japanese text falls
+   back to the system fonts later in --font-body.
+   font-display: optional (paired with <link rel=preload> in each page's
+   <head>) avoids a visible fallback-to-Open-Sans swap: the browser only
+   uses Open Sans if it's ready essentially immediately, otherwise it just
+   keeps the fallback for that page view instead of swapping mid-render. */
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/fonts/OpenSans-Variable.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/fonts/OpenSans-Italic-Variable.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: optional;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a { color: inherit; }
+
+/* ---------- Header ---------- */
+header.site-header {
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  font-size: 15px;
+}
+
+nav.site-nav {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+nav.site-nav a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 15px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+nav.site-nav a:hover,
+nav.site-nav a[aria-current="page"] {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Page layout: sidebar + content ---------- */
+main.page {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 56px 40px 96px;
+}
+
+aside.profile {
+  flex: none;
+  width: var(--sidebar-w);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  border-right: 1px solid var(--line);
+  padding-right: 40px;
+}
+
+.profile-photo {
+  width: 190px;
+  height: 190px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  overflow: hidden;
+}
+.profile-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.profile-name {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.profile-tagline {
+  font-size: 15px;
+  color: var(--accent-brown);
+  margin: 0;
+}
+
+.profile-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.profile-location .icon-pin {
+  color: var(--accent);
+  flex: none;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 18px;
+}
+.contact-button .icon-mail {
+  flex: none;
+}
+
+section.content {
+  flex: 1;
+  min-width: 0;
+  max-width: var(--content-max);
+}
+
+section.content h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+section.content p {
+  margin: 0 0 18px;
+  max-width: 68ch;
+}
+
+section.content a {
+  color: var(--accent);
+}
+section.content a:hover {
+  color: var(--accent-brown);
+}
+
+.cv-link {
+  display: inline-block;
+  margin: 8px 0 24px;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.content-figure {
+  margin-top: 24px;
+  max-width: 520px;
+}
+.content-figure:has(.video-embed) {
+  max-width: 720px;
+}
+.content-figure .placeholder {
+  background: #f2f2f2;
+  border: 1px dashed #bbb;
+  color: #888;
+  font-size: 13px;
+  text-align: center;
+  padding: 64px 16px;
+}
+.content-figure figcaption {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+/* ---------- Contact ---------- */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+.contact-list a.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  padding: 18px 24px;
+}
+.contact-list a.contact-card:hover {
+  color: var(--paper);
+}
+.contact-card svg { flex: none; }
+.contact-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 2px;
+}
+.contact-card-label {
+  font-size: 12px;
+  opacity: 0.7;
+}
+.contact-card-value {
+  font-size: 15px;
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Publications ---------- */
+.pub-section-title {
+  text-decoration: underline;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+ol.pub-list {
+  list-style: none;
+  counter-reset: pub;
+  margin: 0 0 32px;
+  padding: 0;
+}
+ol.pub-list li {
+  counter-increment: pub;
+  margin-bottom: 20px;
+  max-width: 68ch;
+}
+ol.pub-list li::before {
+  content: counter(pub) ". ";
+  font-weight: 600;
+  color: var(--accent-brown);
+}
+ol.pub-list a { text-decoration: underline; }
+.pub-tag {
+  font-weight: 600;
+}
+
+/* ---------- News ---------- */
+.news-item { margin-bottom: 28px; max-width: 68ch; }
+.news-date {
+  text-decoration: underline;
+  font-style: italic;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--accent-brown);
+}
+.news-text { margin: 0; }
+.news-text a { text-decoration: underline; }
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  main.page { flex-direction: column; padding: 40px 24px 72px; gap: 32px; }
+  aside.profile {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding-right: 0;
+    padding-bottom: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .profile-photo { width: 120px; height: 120px; }
+  header.site-header { padding: 16px 24px; }
+}
+
+@media (max-width: 480px) {
+  header.site-header { padding: 14px 20px; gap: 12px 20px; }
+  .site-title { font-size: 13px; }
+  nav.site-nav { gap: 14px 20px; }
+  nav.site-nav a { font-size: 14px; }
+  main.page { padding: 32px 20px 56px; gap: 24px; }
+  section.content h1 { font-size: 26px; }
+  .profile-photo { width: 96px; height: 96px; }
+  .profile-name { font-size: 22px; }
+  footer.site-footer { padding: 14px 20px; }
+}

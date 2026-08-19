@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research — Takekazu Kitagishi</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/OpenSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/OpenSans-Italic-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="index.html">TAKEKAZU KITAGISHI<br>WEBSITE</a>
+  <nav class="site-nav">
+    <a href="index.html">About Me</a>
+    <a href="research.html" aria-current="page">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="news.html">News</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="page">
+  <aside class="profile">
+    <div class="profile-photo">
+      <img src="assets/profile.jpg" alt="Takekazu Kitagishi"
+           onerror="this.style.display='none'; this.parentElement.textContent='プロフィール写真\n(assets/profile.jpg に差し替え)';">
+    </div>
+    <p class="profile-name">TAKEKAZU<br>KITAGISHI</p>
+    <p class="profile-tagline">HCI × AI Researcher<br>at ZOZO NEXT Inc.</p>
+    <p class="profile-location"><svg class="icon-pin" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Japan</p>
+    <a class="contact-button" href="contact.html"><svg class="icon-mail" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>Contact</a>
+  </aside>
+
+  <section class="content">
+    <h1>Research</h1>
+    <p>Takekazu's research teaches AI to recognize the tactile sensation of clothing — the softness, roughness, and texture you feel when you touch or wear fabric — and turns that recognition into something you can explore through language and through devices. The throughline is quantifying wearing comfort: sensing tactile qualities from real cloth, encoding them in a machine-readable latent space, and rendering them back through soft, wearable haptic interfaces, with applications spanning virtual reality, telepresence, and fashion technology.</p>
+    <p>This plays out across several systems: Telextiles, an end-to-end system for remotely transmitting the tactile sensation of cloth (UIST '23); the Pinching Tactile Display and Pinching Visuo-haptic Display line of work, which reproduces fabric texture via electrostatic adsorption and studies how visual cues reinforce it (AVI '24, ICMI '25, CHI EA '25/'26); and, to capture the tactile data these systems rely on, a motion-controlled robotic sliding system for recording tactile data directly from clothing (SIGGRAPH Asia 2025).</p>
+    <p>See the <a href="publications.html">Publications</a> page for the full list — several entries include short video demonstrations of the systems described above.</p>
+
+    <figure class="content-figure">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/0y74v7WMPbE" title="Telextiles preview video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <figcaption>Telextiles: End-to-end Remote Transmission of Fabric Tactile Sensation (UIST '23) — preview video.</figcaption>
+    </figure>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>&copy; 2026 Takekazu Kitagishi</span>
+</footer>
+
+</body>
+</html>

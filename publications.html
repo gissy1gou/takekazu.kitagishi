@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publications — Takekazu Kitagishi</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/OpenSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/OpenSans-Italic-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="index.html">TAKEKAZU KITAGISHI<br>WEBSITE</a>
+  <nav class="site-nav">
+    <a href="index.html">About Me</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html" aria-current="page">Publications</a>
+    <a href="news.html">News</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="page">
+  <aside class="profile">
+    <div class="profile-photo">
+      <img src="assets/profile.jpg" alt="Takekazu Kitagishi"
+           onerror="this.style.display='none'; this.parentElement.textContent='プロフィール写真\n(assets/profile.jpg に差し替え)';">
+    </div>
+    <p class="profile-name">TAKEKAZU<br>KITAGISHI</p>
+    <p class="profile-tagline">HCI × AI Researcher<br>at ZOZO NEXT Inc.</p>
+    <p class="profile-location"><svg class="icon-pin" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Japan</p>
+    <a class="contact-button" href="contact.html"><svg class="icon-mail" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>Contact</a>
+  </aside>
+
+  <section class="content">
+    <h1>Publications</h1>
+    <div id="publications-root"><!-- filled by js/render-publications.js from data/publications.js --></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>&copy; 2026 Takekazu Kitagishi</span>
+</footer>
+
+<script src="data/publications.js"></script>
+<script src="js/render-publications.js"></script>
+</body>
+</html>
